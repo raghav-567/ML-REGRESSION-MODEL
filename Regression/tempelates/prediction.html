@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Result</title>
+</head>
+<body>
+    <h1>Prediction Result</h1>
+
+    <form action="{{ url_for('predict') }}" method="POST">
+        <label for="Temperature">Temperature:</label>
+        <input type="text" name="Temperature" required><br>
+    
+        <label for="RH">Relative Humidity (RH):</label>
+        <input type="text" name="RH" required><br>
+    
+        <label for="Ws">Wind Speed (Ws):</label>
+        <input type="text" name="Ws" required><br>
+    
+        <label for="Rain">Rain:</label>
+        <input type="text" name="Rain" required><br>
+    
+        <label for="FFMC">FFMC:</label>
+        <input type="text" name="FFMC" required><br>
+    
+        <label for="DMC">DMC:</label>
+        <input type="text" name="DMC" required><br>
+    
+        <label for="ISI">ISI:</label>
+        <input type="text" name="ISI" required><br>
+    
+        <label for="Classes">Classes:</label>
+        <input type="text" name="Classes" required><br>
+    
+        <label for="Region">Region:</label>
+        <input type="text" name="Region" required><br>
+    
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if results is defined %}
+        <p>Your predicted result is: {{ results }}</p>
+    {% else %}
+        <p>Submit the form to get a prediction.</p>
+    {% endif %}
+    
+    <a href="/">Back to Home</a>
+</body>
+</html>
